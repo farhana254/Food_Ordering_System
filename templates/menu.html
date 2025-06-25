@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Today's Menu</h2>
+<div class="menu-grid">
+  {% for item in items %}
+    <div class="card">
+      <h3>{{ item['name'] }}</h3>
+      <p>Price: ₹{{ item['price'] }}</p>
+      <a class="btn" href="{{ url_for('add_to_cart', item_id=item['id']) }}">Add to Cart</a>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

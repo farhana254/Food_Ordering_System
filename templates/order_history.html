@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>📜 Order History</h2>
+{% if orders %}
+  <ul class="order-history">
+    {% for order in orders %}
+      <li>
+        <strong>Order #{{ order[0] }}</strong> — {{ order[2] }}<br>
+        Items: {{ order[1] }}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No orders placed yet.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Your Cart 🛒</h2>
+{% if items %}
+  <ul class="cart-list">
+    {% for item in items %}
+      <li>{{ item['name'] }} – ₹{{ item['price'] }}</li>
+    {% endfor %}
+  </ul>
+  <a class="btn-primary" href="{{ url_for('place_order') }}">Place Order</a>
+{% else %}
+  <p>Your cart is empty.</p>
+{% endif %}
+{% endblock %}
